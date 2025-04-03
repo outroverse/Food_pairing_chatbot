@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Food Pairing Chatbot</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #FF9A8B 0%, #FF6B6B 25%, #FFA36B 50%, #FFEAA7 75%, #D8FFC6 100%);
+    }
+    
+    .chat-container {
+      width: 90%;
+      max-width: 500px;
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      padding: 25px;
+      text-align: center;
+    }
+    
+    h2 {
+      color: #FF6B6B;
+      margin-top: 0;
+      font-size: 28px;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+    
+    .chatbox {
+      height: 350px;
+      overflow-y: auto;
+      border-radius: 15px;
+      padding: 15px;
+      margin-bottom: 15px;
+      background: linear-gradient(to bottom, #FFF8E1, #FFECB3);
+      box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .bot-message,
+    .user-message {
+      margin: 8px 0;
+      padding: 12px 16px;
+      border-radius: 18px;
+      max-width: 80%;
+      word-wrap: break-word;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .bot-message {
+      background-color: #FFF3CD;
+      text-align: left;
+      align-self: flex-start;
+      border-bottom-left-radius: 5px;
+      color: #754800;
+    }
+    
+    .user-message {
+      background-color: #FF8C42;
+      text-align: right;
+      align-self: flex-end;
+      border-bottom-right-radius: 5px;
+      color: white;
+    }
+    
+    .input-area {
+      display: flex;
+      gap: 10px;
+    }
+    
+    input {
+      flex: 1;
+      padding: 14px;
+      border: 2px solid #FFB347;
+      border-radius: 25px;
+      font-size: 16px;
+      outline: none;
+      transition: all 0.3s;
+    }
+    
+    input:focus {
+      border-color: #FF6B6B;
+      box-shadow: 0 0 8px rgba(255, 107, 107, 0.5);
+    }
+    
+    button {
+      padding: 14px 20px;
+      background: linear-gradient(to right, #FF8C42, #FF6B6B);
+      color: white;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      transition: all 0.3s;
+    }
+    
+    button:hover {
+      background: linear-gradient(to right, #FF6B6B, #FF8C42);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+    }
+    
+    /* Custom scrollbar */
+    .chatbox::-webkit-scrollbar {
+      width: 8px;
+    }
+    
+    .chatbox::-webkit-scrollbar-track {
+      background: #FFF8E1;
+      border-radius: 10px;
+    }
+    
+    .chatbox::-webkit-scrollbar-thumb {
+      background: #FFB347;
+      border-radius: 10px;
+    }
+    
+    .chatbox::-webkit-scrollbar-thumb:hover {
+      background: #FF8C42;
+    }
+  </style>
+</head>
+<body>
+  <div class="chat-container">
+    <h2>🍲 PairFect 🤖</h2>
+    <div id="chatbox" class="chatbox">
+      <div class="bot-message">Hello! I can suggest perfect pairings and recipes for your ingredients. What would you like to cook today? 😊</div>
+    </div>
+    <div class="input-area">
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Enter an ingredient..."
+        onkeypress="handleKeyPress(event)"
+      />
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
